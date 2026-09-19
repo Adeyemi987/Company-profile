@@ -40,15 +40,18 @@
             position: relative;
             overflow-y: auto;
             overflow-x: hidden;
-            padding-bottom: 100px;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
             width: 100%;
+            max-width: 100%;
         }
 
         .slide {
             width: 100%;
-            min-height: 100vh;
-            padding: 60px 40px;
+            max-width: 100%;
+            min-height: 100%;
+            padding: 60px 40px 110px;
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -268,11 +271,19 @@
             margin: 30px 0;
         }
 
-        .circular-diagram {
-            width: 300px;
-            height: 300px;
+        .diagram-stage {
             position: relative;
+            width: 320px;
+            height: 320px;
+            max-width: 100%;
             margin: 0 auto;
+            flex-shrink: 0;
+        }
+
+        .circular-diagram {
+            width: 100%;
+            height: 100%;
+            display: block;
         }
 
         .diagram-node {
@@ -287,13 +298,14 @@
             text-align: center;
             font-size: 11px;
             font-weight: 600;
+            line-height: 1.2;
             box-shadow: 0 4px 12px rgba(2, 119, 189, 0.3);
         }
 
-        .diagram-node:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
-        .diagram-node:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); }
-        .diagram-node:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
-        .diagram-node:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); }
+        .node-top { top: 0; left: 50%; transform: translateX(-50%); }
+        .node-right { top: 50%; right: 0; transform: translateY(-50%); }
+        .node-bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .node-left { top: 50%; left: 0; transform: translateY(-50%); }
 
         .diagram-caption {
             text-align: center;
@@ -914,12 +926,8 @@
 
         @media (max-width: 768px) {
             .slide {
-                padding: 20px 15px;
-                min-height: 100vh;
-            }
-
-            .slide-wrapper {
-                padding-bottom: 110px;
+                padding: 20px 15px 110px;
+                min-height: 100%;
             }
 
             .headline {
@@ -1048,9 +1056,15 @@
                 margin: 20px 0;
             }
 
-            .circular-diagram {
-                width: 200px;
-                height: 200px;
+            .diagram-stage {
+                width: 250px;
+                height: 250px;
+            }
+
+            .diagram-node {
+                width: 60px;
+                height: 60px;
+                font-size: 9px;
             }
 
             /* Method steps */
@@ -1308,12 +1322,8 @@
 
         @media (max-width: 480px) {
             .slide {
-                padding: 15px 10px;
-                min-height: 100vh;
-            }
-
-            .slide-wrapper {
-                padding-bottom: 120px;
+                padding: 15px 10px 120px;
+                min-height: 100%;
             }
 
             .headline {
@@ -1376,9 +1386,15 @@
                 font-size: 18px;
             }
 
-            .circular-diagram {
-                width: 150px;
-                height: 150px;
+            .diagram-stage {
+                width: 215px;
+                height: 215px;
+            }
+
+            .diagram-node {
+                width: 54px;
+                height: 54px;
+                font-size: 8px;
             }
 
             .step-card {
@@ -1580,23 +1596,24 @@
                     <div class="quote-line"></div>
                 </div>
 
-                <svg class="circular-diagram" viewBox="0 0 300 300">
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                            <polygon points="0 0, 10 3, 0 6" fill="#29B6F6" />
-                        </marker>
-                    </defs>
-                    <!-- Curved arrows -->
-                    <path d="M 150 35 Q 235 80 245 150" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
-                    <path d="M 265 150 Q 235 235 150 265" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
-                    <path d="M 150 265 Q 65 235 55 150" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
-                    <path d="M 35 150 Q 65 65 150 35" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
-                </svg>
+                <div class="diagram-stage">
+                    <svg class="circular-diagram" viewBox="0 0 300 300">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#29B6F6" />
+                            </marker>
+                        </defs>
+                        <path d="M 150 35 Q 235 80 245 150" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+                        <path d="M 265 150 Q 235 235 150 265" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+                        <path d="M 150 265 Q 65 235 55 150" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+                        <path d="M 35 150 Q 65 65 150 35" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+                    </svg>
 
-                <div class="diagram-node">Business<br>Operations</div>
-                <div class="diagram-node" style="right: 0; transform: translateY(-50%); left: auto;">Domain<br>Understanding</div>
-                <div class="diagram-node" style="bottom: 0; top: auto;">Custom<br>Software</div>
-                <div class="diagram-node" style="left: 0; right: auto;">Operational<br>Fit</div>
+                    <div class="diagram-node node-top">Business<br>Operations</div>
+                    <div class="diagram-node node-right">Domain<br>Understanding</div>
+                    <div class="diagram-node node-bottom">Custom<br>Software</div>
+                    <div class="diagram-node node-left">Operational<br>Fit</div>
+                </div>
 
                 <div class="diagram-caption">Domain understanding first, engineering second.</div>
             </div>
@@ -2019,7 +2036,9 @@
         let currentSlide = 0;
         const totalSlides = document.querySelectorAll('.slide').length;
         let touchStartX = 0;
+        let touchStartY = 0;
         let touchEndX = 0;
+        let touchEndY = 0;
 
         function showSlide(n) {
             const slides = document.querySelectorAll('.slide');
@@ -2047,6 +2066,8 @@
             document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
 
             document.getElementById('total-slides').textContent = totalSlides;
+
+            document.querySelector('.slide-wrapper').scrollTop = 0;
         }
 
         function nextSlide() {
@@ -2066,23 +2087,27 @@
         // Touch/Swipe navigation for mobile
         document.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
-        }, false);
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
 
         document.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
             handleSwipe();
-        }, false);
+        }, { passive: true });
 
         function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
+            const swipeThreshold = 60;
+            const dx = touchStartX - touchEndX;
+            const dy = touchStartY - touchEndY;
 
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    previousSlide();
-                }
+            // Ignore anything that looks like a vertical scroll
+            if (Math.abs(dx) < swipeThreshold || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+
+            if (dx > 0) {
+                nextSlide();
+            } else {
+                previousSlide();
             }
         }
 
