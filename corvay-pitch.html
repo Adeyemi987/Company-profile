@@ -836,6 +836,128 @@
             font-size: 16px;
         }
 
+        /* Slide 11 - Leadership */
+        .leader-wrap {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .leader-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 40px;
+            width: 100%;
+            align-items: start;
+        }
+
+        .leader-card {
+            background: rgba(26, 58, 82, 0.6);
+            border: 1px solid rgba(41, 182, 246, 0.2);
+            border-radius: 8px;
+            padding: 35px 30px;
+            text-align: center;
+        }
+
+        .leader-avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--cyan), var(--royal-blue));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+        }
+
+        .leader-name {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .leader-role {
+            font-size: 14px;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .leader-body {
+            text-align: left;
+        }
+
+        .leader-label {
+            font-size: 11px;
+            color: var(--cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .leader-label + .leader-facts,
+        .leader-label + .leader-list {
+            margin-bottom: 20px;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+            /* reserve two rows so both cards' sections line up */
+            min-height: 66px;
+            align-content: flex-start;
+        }
+
+        .tag {
+            background: rgba(41, 182, 246, 0.2);
+            color: var(--cyan);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .leader-facts {
+            font-size: 13px;
+            color: #B0BEC5;
+            line-height: 1.6;
+        }
+
+        .leader-facts div {
+            margin-bottom: 8px;
+        }
+
+        .leader-facts div:last-child {
+            margin-bottom: 0;
+        }
+
+        .leader-facts strong {
+            color: var(--white);
+        }
+
+        .leader-list {
+            font-size: 12px;
+            color: #B0BEC5;
+            line-height: 1.7;
+        }
+
+        .leader-summary {
+            margin-top: 35px;
+            padding: 22px 25px;
+            background: linear-gradient(90deg, rgba(2, 119, 189, 0.2), rgba(41, 182, 246, 0.2));
+            border-left: 4px solid var(--cyan);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
         /* Navigation */
         .nav-bar {
             display: flex;
@@ -1364,8 +1486,48 @@
             }
 
             /* Leadership slide */
-            .models-grid {
-                gap: 30px;
+            .leader-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .leader-card {
+                padding: 25px 20px;
+            }
+
+            .leader-avatar {
+                width: 70px;
+                height: 70px;
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+
+            .leader-name {
+                font-size: 18px;
+            }
+
+            .leader-role {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+
+            .tag-row {
+                min-height: 0;
+                margin-bottom: 18px;
+            }
+
+            .leader-facts {
+                font-size: 12px;
+            }
+
+            .leader-list {
+                font-size: 11px;
+            }
+
+            .leader-summary {
+                margin-top: 20px;
+                padding: 18px;
+                font-size: 12px;
             }
         }
 
@@ -1935,82 +2097,74 @@
 
             <!-- Slide 11 - Leadership -->
             <div class="slide" id="slide-11">
-                <div style="width: 100%; max-width: 1200px;">
-                    <h2 class="slide-title" style="margin-bottom: 60px;">Our Leadership</h2>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%;">
-                        <!-- CEO Card -->
-                        <div style="background: rgba(26, 58, 82, 0.6); border: 1px solid rgba(41, 182, 246, 0.2); border-radius: 8px; padding: 40px; text-align: center;">
-                            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--cyan), var(--royal-blue)); border-radius: 50%; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: white;">
-                                👔
-                            </div>
-                            <div style="font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 8px;">Adeyemi Tubosun</div>
-                            <div style="font-size: 14px; color: var(--cyan); font-weight: 600; margin-bottom: 25px;">CEO & Product Architect</div>
+                <div class="leader-wrap">
+                    <h2 class="slide-title">Our Leadership</h2>
+                    <div class="leader-grid">
+                        <div class="leader-card">
+                            <div class="leader-avatar">👔</div>
+                            <div class="leader-name">Adeyemi Tubosun</div>
+                            <div class="leader-role">CEO &amp; Product Architect</div>
 
-                            <div style="text-align: left; margin-bottom: 25px;">
-                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Core Expertise</div>
-                                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">AI/RAG Systems</span>
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Product Management</span>
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Cloud Architecture</span>
+                            <div class="leader-body">
+                                <div class="leader-label">Core Expertise</div>
+                                <div class="tag-row">
+                                    <span class="tag">AI/RAG Systems</span>
+                                    <span class="tag">Product Management</span>
+                                    <span class="tag">Cloud Architecture</span>
                                 </div>
 
-                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Experience</div>
-                                <div style="font-size: 13px; color: #B0BEC5; line-height: 1.6;">
-                                    <div style="margin-bottom: 8px;"><strong style="color: var(--white);">9+ years</strong> building enterprise software</div>
-                                    <div style="margin-bottom: 8px;">Led loan systems for <strong style="color: var(--white);">Fairmoney</strong></div>
-                                    <div style="margin-bottom: 8px;">Architected payment gateway <strong style="color: var(--white);">Hydrogen Pay</strong></div>
+                                <div class="leader-label">Experience</div>
+                                <div class="leader-facts">
+                                    <div><strong>9+ years</strong> building enterprise software</div>
+                                    <div>Led loan systems for <strong>Fairmoney</strong></div>
+                                    <div>Architected payment gateway <strong>Hydrogen Pay</strong></div>
                                     <div>Built 10+ operational reporting platforms</div>
                                 </div>
 
-                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 15px; margin-bottom: 10px;">Previous Roles</div>
-                                <div style="font-size: 12px; color: #B0BEC5;">
+                                <div class="leader-label">Previous Roles</div>
+                                <div class="leader-list">
                                     <div>• Parallex Bank (Software Engineering Consultant)</div>
                                     <div>• Fairmoney MFB (Software Engineer)</div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- CTO Card -->
-                        <div style="background: rgba(26, 58, 82, 0.6); border: 1px solid rgba(41, 182, 246, 0.2); border-radius: 8px; padding: 40px; text-align: center;">
-                            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--cyan), var(--royal-blue)); border-radius: 50%; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: white;">
-                                ⚙️
-                            </div>
-                            <div style="font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 8px;">Abdulhafiz Suleiman</div>
-                            <div style="font-size: 14px; color: var(--cyan); font-weight: 600; margin-bottom: 25px;">Chief Technology Officer</div>
+                        <div class="leader-card">
+                            <div class="leader-avatar">⚙️</div>
+                            <div class="leader-name">Abdulhafiz Suleiman</div>
+                            <div class="leader-role">Chief Technology Officer</div>
 
-                            <div style="text-align: left; margin-bottom: 25px;">
-                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Technical Expertise</div>
-                                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Go</span>
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">C#</span>
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Python</span>
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">AI/RAG</span>
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Microservices</span>
-                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Mono-repo</span>
+                            <div class="leader-body">
+                                <div class="leader-label">Technical Expertise</div>
+                                <div class="tag-row">
+                                    <span class="tag">Go</span>
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">AI/RAG</span>
+                                    <span class="tag">Microservices</span>
+                                    <span class="tag">Mono-repo</span>
                                 </div>
 
-                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Architecture Expertise</div>
-                                <div style="font-size: 13px; color: #B0BEC5; line-height: 1.6;">
-                                    <div style="margin-bottom: 8px;"><strong style="color: var(--white);">10+ years</strong> building enterprise systems</div>
-                                    <div style="margin-bottom: 8px;">Expert in <strong style="color: var(--white);">distributed systems</strong> design</div>
-                                    <div style="margin-bottom: 8px;">Deep expertise in <strong style="color: var(--white);">microservices</strong> and monolithic architectures</div>
-                                    <div>Specialized in <strong style="color: var(--white);">AI/RAG</strong> system implementation</div>
+                                <div class="leader-label">Architecture Expertise</div>
+                                <div class="leader-facts">
+                                    <div><strong>10+ years</strong> building enterprise systems</div>
+                                    <div>Expert in <strong>distributed systems</strong> design</div>
+                                    <div>Deep expertise in <strong>microservices</strong> and monolithic architectures</div>
+                                    <div>Specialized in <strong>AI/RAG</strong> system implementation</div>
                                 </div>
 
-                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 15px; margin-bottom: 10px;">Focus Areas</div>
-                                <div style="font-size: 12px; color: #B0BEC5;">
+                                <div class="leader-label">Focus Areas</div>
+                                <div class="leader-list">
                                     <div>• Scalable backend architecture</div>
-                                    <div>• System reliability & observability</div>
+                                    <div>• System reliability &amp; observability</div>
                                     <div>• Modern tech stack decisions</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div style="margin-top: 40px; padding: 25px; background: linear-gradient(90deg, rgba(2, 119, 189, 0.2), rgba(41, 182, 246, 0.2)); border-radius: 8px; text-align: center; border-left: 4px solid var(--cyan);">
-                        <div style="font-size: 14px; color: var(--white); font-weight: 600;">
-                            <strong>19+ combined years</strong> of enterprise software delivery experience across fintech, payment systems, AI, and operational platforms.
-                        </div>
+                    <div class="leader-summary">
+                        <strong>19+ combined years</strong> of enterprise software delivery experience across fintech, payment systems, AI, and operational platforms.
                     </div>
                 </div>
             </div>
