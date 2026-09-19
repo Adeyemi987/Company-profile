@@ -2025,6 +2025,8 @@
     <script>
         let currentSlide = 0;
         const totalSlides = document.querySelectorAll('.slide').length;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         function showSlide(n) {
             const slides = document.querySelectorAll('.slide');
@@ -2067,6 +2069,29 @@
             if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'ArrowLeft') previousSlide();
         });
+
+        // Touch/Swipe navigation for mobile
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    previousSlide();
+                }
+            }
+        }
 
         // Initialize
         showSlide(0);
