@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corvay Technologies - Pitch Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0F2B42;
+            --royal-blue: #0277BD;
+            --cyan: #29B6F6;
+            --white: #FFFFFF;
+            --dark-gray: #1A3A52;
+            --light-gray: #E3F2FD;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            padding: 60px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--navy) 0%, #1a4d7a 100%);
+            position: relative;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Slide 1 */
+        #slide-1 {
+            background: radial-gradient(ellipse at 80% 100%, var(--royal-blue) 0%, var(--navy) 70%);
+        }
+
+        .slide-1-content {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--cyan);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .headline {
+            font-size: 54px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .highlight-cyan {
+            color: var(--cyan);
+        }
+
+        .accent-line {
+            width: 80px;
+            height: 2px;
+            background: var(--cyan);
+            margin: 20px auto;
+        }
+
+        .subhead {
+            font-size: 18px;
+            color: #B0BEC5;
+            letter-spacing: 0.5px;
+        }
+
+        /* Slide 2 */
+        .slide-2-content {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .slide-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--white);
+        }
+
+        .chapters {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .chapter {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .chapter:hover {
+            transform: translateX(10px);
+            background: rgba(41, 182, 246, 0.1);
+        }
+
+        .chapter-number {
+            background: var(--cyan);
+            color: var(--navy);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+
+        .chapter-content {
+            flex: 1;
+        }
+
+        .chapter-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .chapter-icon {
+            color: var(--cyan);
+            font-size: 20px;
+            margin-left: 10px;
+            opacity: 0.7;
+        }
+
+        /* Slide 3 - Before/After */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .split-panel {
+            padding: 40px;
+            border-radius: 8px;
+            background: rgba(26, 58, 82, 0.6);
+            border: 1px solid rgba(41, 182, 246, 0.2);
+        }
+
+        .split-panel.muted {
+            opacity: 0.7;
+        }
+
+        .split-panel.bright {
+            border: 1px solid var(--cyan);
+            background: rgba(41, 182, 246, 0.1);
+        }
+
+        .split-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+
+        .icon-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .icon-row i {
+            font-size: 24px;
+            color: var(--cyan);
+            width: 30px;
+        }
+
+        .split-panel.muted .icon-row i {
+            color: #666;
+            opacity: 0.5;
+        }
+
+        .bottom-band {
+            width: 100%;
+            background: linear-gradient(90deg, rgba(41, 182, 246, 0.2), rgba(2, 119, 189, 0.2));
+            padding: 20px 40px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+            color: var(--white);
+            font-style: italic;
+        }
+
+        /* Slide 4 - Quote & Diagram */
+        .quote-section {
+            max-width: 900px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .quote-line {
+            width: 60px;
+            height: 2px;
+            background: var(--royal-blue);
+            margin: 20px auto;
+        }
+
+        .quote-text {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--white);
+            margin: 30px 0;
+        }
+
+        .circular-diagram {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .diagram-node {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--royal-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(2, 119, 189, 0.3);
+        }
+
+        .diagram-node:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+        .diagram-node:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); }
+        .diagram-node:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .diagram-node:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); }
+
+        .diagram-caption {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: var(--cyan);
+            font-style: italic;
+        }
+
+        /* Slide 5 - Method Steps */
+        .method-steps {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+        }
+
+        .step-card {
+            flex: 1;
+            min-width: 150px;
+            background: rgba(26, 58, 82, 0.6);
+            border: 1px solid rgba(41, 182, 246, 0.2);
+            padding: 25px 15px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            color: var(--cyan);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .step-icon {
+            font-size: 30px;
+            color: var(--cyan);
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: #B0BEC5;
+            line-height: 1.4;
+        }
+
+        .step-chevron {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cyan);
+            font-size: 20px;
+            z-index: 1;
+        }
+
+        .step-card:last-child .step-chevron {
+            display: none;
+        }
+
+        .method-note {
+            width: 100%;
+            background: linear-gradient(90deg, rgba(2, 119, 189, 0.2), rgba(41, 182, 246, 0.2));
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        /* Slide 6 - Portfolio Cards */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--dark-gray);
+            border-top: 3px solid var(--royal-blue);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-icon {
+            font-size: 40px;
+            color: var(--cyan);
+            margin-bottom: 15px;
+            background: rgba(41, 182, 246, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .portfolio-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .portfolio-desc {
+            font-size: 14px;
+            color: #B0BEC5;
+            line-height: 1.5;
+        }
+
+        .portfolio-note {
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: var(--cyan);
+            font-style: italic;
+        }
+
+        /* Slide 7 - Dashboard */
+        .dashboard-mockup {
+            border: 2px solid var(--cyan);
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            background: var(--white);
+            color: var(--navy);
+            box-shadow: 0 20px 60px rgba(41, 182, 246, 0.2);
+        }
+
+        .browser-bar {
+            background: var(--dark-gray);
+            padding: 15px 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-size: 12px;
+            color: #B0BEC5;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--cyan);
+        }
+
+        .browser-url {
+            color: var(--cyan);
+            font-family: 'Courier New', monospace;
+            flex: 1;
+        }
+
+        .dashboard-content {
+            padding: 40px;
+        }
+
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .kpi-tile {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--cyan);
+        }
+
+        .kpi-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--royal-blue);
+            margin-bottom: 5px;
+        }
+
+        .kpi-label {
+            font-size: 12px;
+            color: var(--navy);
+            opacity: 0.7;
+        }
+
+        .charts-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .chart-placeholder {
+            background: linear-gradient(135deg, rgba(41, 182, 246, 0.1), rgba(2, 119, 189, 0.1));
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            color: var(--navy);
+            opacity: 0.7;
+            font-size: 12px;
+        }
+
+        .demo-callout {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--cyan);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Slide 8 - Roadmap */
+        .roadmap-list {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .roadmap-item {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: rgba(26, 58, 82, 0.5);
+            border-left: 4px solid var(--cyan);
+            border-radius: 4px;
+        }
+
+        .phase-number {
+            color: var(--cyan);
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 16px;
+            min-width: 40px;
+        }
+
+        .phase-icon {
+            font-size: 20px;
+            color: var(--cyan);
+            margin-top: 2px;
+        }
+
+        .phase-content {
+            flex: 1;
+        }
+
+        .phase-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .phase-desc {
+            font-size: 13px;
+            color: #B0BEC5;
+        }
+
+        .roadmap-badge {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: rgba(41, 182, 246, 0.2);
+            border: 1px solid var(--cyan);
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        /* Slide 9 - Engagement Models */
+        .models-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 20px;
+        }
+
+        .model-card {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(41, 182, 246, 0.2);
+            transition: border-color 0.3s ease;
+        }
+
+        .model-card:hover {
+            border-color: var(--cyan);
+        }
+
+        .model-icon {
+            font-size: 40px;
+            color: var(--cyan);
+            margin-bottom: 15px;
+            background: rgba(41, 182, 246, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .model-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .model-desc {
+            font-size: 14px;
+            color: #B0BEC5;
+            line-height: 1.5;
+        }
+
+        .models-badge {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: rgba(41, 182, 246, 0.2);
+            border: 1px solid var(--cyan);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        /* Slide 10 - Differentiator */
+        .feature-mill {
+            opacity: 0.7;
+        }
+
+        .differentiator-band {
+            width: 100%;
+            margin-top: 30px;
+            background: linear-gradient(90deg, rgba(41, 182, 246, 0.2), rgba(2, 119, 189, 0.2));
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .differentiator-claims {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .claim {
+            text-align: center;
+            flex: 1;
+        }
+
+        .claim-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--cyan);
+            margin-bottom: 10px;
+        }
+
+        .claim-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .claim-desc {
+            font-size: 12px;
+            color: #B0BEC5;
+        }
+
+        /* Slide 11 - Outcomes */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 30px;
+        }
+
+        .outcome-block {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            padding: 30px;
+            background: rgba(26, 58, 82, 0.6);
+            border: 1px solid rgba(41, 182, 246, 0.2);
+            border-radius: 8px;
+        }
+
+        .outcome-number {
+            font-size: 54px;
+            font-weight: 700;
+            color: var(--cyan);
+            line-height: 1;
+            min-width: 80px;
+        }
+
+        .outcome-content {
+            flex: 1;
+        }
+
+        .outcome-icon {
+            font-size: 28px;
+            color: var(--cyan);
+            margin-bottom: 10px;
+        }
+
+        .outcome-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .outcome-desc {
+            font-size: 14px;
+            color: #B0BEC5;
+            line-height: 1.6;
+        }
+
+        .outcomes-closing {
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            color: var(--white);
+            font-style: italic;
+            font-weight: 600;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(41, 182, 246, 0.2);
+        }
+
+        /* Slide 12 - Closing */
+        #slide-12 {
+            background: var(--navy);
+        }
+
+        .closing-content {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .closing-accent {
+            width: 100px;
+            height: 3px;
+            background: var(--cyan);
+            margin: 0 auto 40px;
+        }
+
+        .closing-headline {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 50px;
+            color: var(--white);
+        }
+
+        .qa-prompt {
+            font-size: 24px;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            color: #B0BEC5;
+            margin-top: 30px;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(26, 58, 82, 0.5);
+            border-top: 1px solid rgba(41, 182, 246, 0.2);
+            height: 70px;
+        }
+
+        .nav-button {
+            background: rgba(41, 182, 246, 0.2);
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-button:hover {
+            background: var(--cyan);
+            color: var(--navy);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .slide-progress {
+            flex: 1;
+            height: 4px;
+            background: rgba(41, 182, 246, 0.2);
+            margin: 0 40px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--cyan);
+            transition: width 0.6s ease;
+        }
+
+        /* Logo */
+        .logo-small {
+            height: 40px;
+            opacity: 0.8;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            z-index: 10;
+        }
+
+        .logo-container img {
+            height: 50px;
+        }
+
+        /* Keyboard shortcuts hint */
+        .shortcuts-hint {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 11px;
+            color: #666;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+
+            .headline {
+                font-size: 32px;
+            }
+
+            .chapters {
+                grid-template-columns: 1fr;
+            }
+
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .method-steps {
+                flex-direction: column;
+            }
+
+            .step-chevron {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="logo-container">
+            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'%3E%3Cstop offset='0%' style='stop-color:%2329B6F6;stop-opacity:1' /%3E%3Cstop offset='100%' style='stop-color:%230277BD;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M100,30 L140,75 L140,120 L100,145 L60,120 L60,75 Z' fill='url(%23grad1)' opacity='0.8'/%3E%3Cpath d='M100,30 L140,75 L100,100 Z' fill='%2329B6F6'/%3E%3Cpath d='M100,145 L60,120 L100,100 Z' fill='%230277BD' opacity='0.6'/%3E%3C/svg%3E" alt="Corvay" class="logo-small">
+        </div>
+
+        <div class="slide-wrapper">
+            <!-- Slide 1 -->
+            <div class="slide active" id="slide-1">
+                <div class="slide-1-content">
+                    <div class="eyebrow">CORVAY TECHNOLOGIES</div>
+                    <h1 class="headline">We Don't Just Build Software.<br><span class="highlight-cyan">We Build Technology Around Your Business.</span></h1>
+                    <div class="accent-line"></div>
+                    <p class="subhead">Custom Software Partner — September 2026</p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" id="slide-2">
+                <div class="slide-2-content">
+                    <h2 class="slide-title">What We'll Cover</h2>
+                    <div class="chapters">
+                        <div class="chapter">
+                            <div class="chapter-number">01</div>
+                            <div class="chapter-content">
+                                <div class="chapter-title">The Partnership Challenge</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">Why generic software falls short</div>
+                            </div>
+                            <div class="chapter-icon">⊞</div>
+                        </div>
+                        <div class="chapter">
+                            <div class="chapter-number">02</div>
+                            <div class="chapter-content">
+                                <div class="chapter-title">Our Philosophy</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">Technology around your business</div>
+                            </div>
+                            <div class="chapter-icon">🧭</div>
+                        </div>
+                        <div class="chapter">
+                            <div class="chapter-number">03</div>
+                            <div class="chapter-content">
+                                <div class="chapter-title">Our Method</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">Domain understanding first, engineering second</div>
+                            </div>
+                            <div class="chapter-icon">🛣️</div>
+                        </div>
+                        <div class="chapter">
+                            <div class="chapter-number">04</div>
+                            <div class="chapter-content">
+                                <div class="chapter-title">Proof of Craft</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">Product portfolio overview</div>
+                            </div>
+                            <div class="chapter-icon">□</div>
+                        </div>
+                        <div class="chapter">
+                            <div class="chapter-number">05</div>
+                            <div class="chapter-content">
+                                <div class="chapter-title">Live Demonstration</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">Operational reporting platform</div>
+                            </div>
+                            <div class="chapter-icon">🖥️</div>
+                        </div>
+                        <div class="chapter">
+                            <div class="chapter-number">06</div>
+                            <div class="chapter-content">
+                                <div class="chapter-title">Engagement Roadmap</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">8-phase delivery approach</div>
+                            </div>
+                            <div class="chapter-icon">🛣️</div>
+                        </div>
+                        <div class="chapter">
+                            <div class="chapter-number">07</div>
+                            <div class="chapter-content">
+                                <div class="chapter-title">Engagement Models</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">How we partner</div>
+                            </div>
+                            <div class="chapter-icon">🤝</div>
+                        </div>
+                        <div class="chapter">
+                            <div class="chapter-number">08</div>
+                            <div class="chapter-content">
+                                <div class="chapter-title">Why Corvay</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">The differentiator</div>
+                            </div>
+                            <div class="chapter-icon">🏆</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide" id="slide-3">
+                <div style="width: 100%; max-width: 1100px;">
+                    <h2 class="slide-title" style="margin-bottom: 40px;">The Partnership Challenge</h2>
+                    <div class="split-layout">
+                        <div class="split-panel muted">
+                            <div class="split-title">How Most Software Fits</div>
+                            <div class="icon-row">📦 <span>Rigid packages that force process change</span></div>
+                            <div class="icon-row">🔨 <span>Manual workarounds required</span></div>
+                            <div class="icon-row">📊 <span>Spreadsheet sprawl persists</span></div>
+                            <div class="icon-row">⚠️ <span>Broken approval chains</span></div>
+                        </div>
+                        <div class="split-panel bright">
+                            <div class="split-title">How Software Should Fit</div>
+                            <div class="icon-row">🗺️ <span>Mirrors your operational flow</span></div>
+                            <div class="icon-row">🔌 <span>Connects existing tools seamlessly</span></div>
+                            <div class="icon-row">✓ <span>Streamlines approvals automatically</span></div>
+                            <div class="icon-row">⚡ <span>Eliminates manual handoffs</span></div>
+                        </div>
+                    </div>
+                    <div class="bottom-band">
+                        ⓘ Manual processes, bottlenecks, spreadsheets, approvals — this is your operational blueprint.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide" id="slide-4">
+                <div class="quote-section">
+                    <div class="quote-line"></div>
+                    <div class="quote-text">
+                        "We don't just build software products. We build <span class="highlight-cyan">technology around your business.</span>"
+                    </div>
+                    <div class="quote-line"></div>
+                </div>
+
+                <svg class="circular-diagram" viewBox="0 0 300 300">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#29B6F6" />
+                        </marker>
+                    </defs>
+                    <!-- Curved arrows -->
+                    <path d="M 150 35 Q 235 80 245 150" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+                    <path d="M 265 150 Q 235 235 150 265" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+                    <path d="M 150 265 Q 65 235 55 150" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+                    <path d="M 35 150 Q 65 65 150 35" stroke="#29B6F6" stroke-width="2" fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+                </svg>
+
+                <div class="diagram-node">Business<br>Operations</div>
+                <div class="diagram-node" style="right: 0; transform: translateY(-50%); left: auto;">Domain<br>Understanding</div>
+                <div class="diagram-node" style="bottom: 0; top: auto;">Custom<br>Software</div>
+                <div class="diagram-node" style="left: 0; right: auto;">Operational<br>Fit</div>
+
+                <div class="diagram-caption">Domain understanding first, engineering second.</div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide" id="slide-5">
+                <div style="width: 100%;">
+                    <h2 class="slide-title" style="margin-bottom: 50px;">Our Method</h2>
+                    <div class="method-steps">
+                        <div class="step-card">
+                            <div class="step-number">01</div>
+                            <div class="step-icon">🔍</div>
+                            <div class="step-title">Discover</div>
+                            <div class="step-desc">Observe how work actually happens</div>
+                            <div class="step-chevron">›</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">02</div>
+                            <div class="step-icon">🗺️</div>
+                            <div class="step-title">Map Domain</div>
+                            <div class="step-desc">Document processes & bottlenecks</div>
+                            <div class="step-chevron">›</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">03</div>
+                            <div class="step-icon">🐛</div>
+                            <div class="step-title">Diagnose</div>
+                            <div class="step-desc">Identify operational friction</div>
+                            <div class="step-chevron">›</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">04</div>
+                            <div class="step-icon">✏️</div>
+                            <div class="step-title">Design</div>
+                            <div class="step-desc">Shape around business model</div>
+                            <div class="step-chevron">›</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">05</div>
+                            <div class="step-icon">&lt;&gt;</div>
+                            <div class="step-title">Build</div>
+                            <div class="step-desc">Engineering follows blueprint</div>
+                        </div>
+                    </div>
+                    <div class="method-note">
+                        💡 Engineering serves the business model — never the other way around.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="slide" id="slide-6">
+                <div style="width: 100%; max-width: 1100px;">
+                    <h2 class="slide-title" style="margin-bottom: 50px;">Proof of Craft</h2>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-card">
+                            <div class="portfolio-icon">&lt;&gt;</div>
+                            <div class="portfolio-title">DevAssist AI</div>
+                            <div class="portfolio-desc">AI assistant embedded in developer workflows. Demonstrates depth in applied AI and developer experience.</div>
+                        </div>
+                        <div class="portfolio-card">
+                            <div class="portfolio-icon">🔌</div>
+                            <div class="portfolio-title">SaaS-Connect</div>
+                            <div class="portfolio-desc">Integration layer linking SaaS tools and in-house systems. Demonstrates depth in integration engineering.</div>
+                        </div>
+                        <div class="portfolio-card">
+                            <div class="portfolio-icon">📈</div>
+                            <div class="portfolio-title">Ecolytix</div>
+                            <div class="portfolio-desc">Analytics-as-a-service platform for operational insight. Demonstrates depth in data engineering and visualization.</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-note">
+                        ⭐ These products prove our technical depth. Your business defines how we apply it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="slide" id="slide-7">
+                <div style="width: 100%; max-width: 1000px;">
+                    <h2 class="slide-title" style="margin-bottom: 40px;">Live Demonstration</h2>
+                    <div class="dashboard-mockup">
+                        <div class="browser-bar">
+                            <div class="browser-dot"></div>
+                            <div class="browser-dot"></div>
+                            <div class="browser-dot"></div>
+                            <div class="browser-url">corvay-reporting.onrender.com/auth/login</div>
+                        </div>
+                        <div class="dashboard-content">
+                            <div class="kpi-row">
+                                <div class="kpi-tile">
+                                    <div class="kpi-value">47</div>
+                                    <div class="kpi-label">Approvals Awaiting</div>
+                                </div>
+                                <div class="kpi-tile">
+                                    <div class="kpi-value">3.2d</div>
+                                    <div class="kpi-label">Avg Cycle Time</div>
+                                </div>
+                                <div class="kpi-tile">
+                                    <div class="kpi-value">12</div>
+                                    <div class="kpi-label">Exceptions Detected</div>
+                                </div>
+                            </div>
+                            <div class="charts-row">
+                                <div class="chart-placeholder">
+                                    <div style="font-size: 32px; display: block; margin-bottom: 10px;">📊</div>
+                                    Approvals by Department
+                                </div>
+                                <div class="chart-placeholder">
+                                    <div style="font-size: 32px; display: block; margin-bottom: 10px;">📈</div>
+                                    Cycle Time Trend
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-callout">
+                        ▶️ Built on our own stack — custom integration, custom workflows, custom visuals. This is the proof of what we deliver.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="slide" id="slide-8">
+                <div style="width: 100%; max-width: 1000px; position: relative;">
+                    <h2 class="slide-title" style="margin-bottom: 40px;">How We Deliver</h2>
+                    <div class="roadmap-badge">Illustrative — tailored to each engagement</div>
+                    <div class="roadmap-list">
+                        <div class="roadmap-item">
+                            <div class="phase-number">01</div>
+                            <div class="phase-icon">🔍</div>
+                            <div class="phase-content">
+                                <div class="phase-title">Discovery</div>
+                                <div class="phase-desc">Understand goals, constraints, and success criteria</div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="phase-number">02</div>
+                            <div class="phase-icon">🗺️</div>
+                            <div class="phase-content">
+                                <div class="phase-title">Domain Mapping</div>
+                                <div class="phase-desc">Capture operational flows, pain points, and existing tooling</div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="phase-number">03</div>
+                            <div class="phase-icon">✏️</div>
+                            <div class="phase-content">
+                                <div class="phase-title">Solution Architecture</div>
+                                <div class="phase-desc">Define the technical blueprint around the domain</div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="phase-number">04</div>
+                            <div class="phase-icon">✏️</div>
+                            <div class="phase-content">
+                                <div class="phase-title">UX Prototype</div>
+                                <div class="phase-desc">Validate the design against real workflows</div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="phase-number">05</div>
+                            <div class="phase-icon">&lt;&gt;</div>
+                            <div class="phase-content">
+                                <div class="phase-title">Development Sprints</div>
+                                <div class="phase-desc">Iterative build in short cycles with regular demos</div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="phase-number">06</div>
+                            <div class="phase-icon">📡</div>
+                            <div class="phase-content">
+                                <div class="phase-title">QA & Observability</div>
+                                <div class="phase-desc">Test, instrument, and monitor from day one</div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="phase-number">07</div>
+                            <div class="phase-icon">🚀</div>
+                            <div class="phase-content">
+                                <div class="phase-title">Deployment</div>
+                                <div class="phase-desc">Release with rollout and stakeholder preparation</div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="phase-number">08</div>
+                            <div class="phase-icon">♻️</div>
+                            <div class="phase-content">
+                                <div class="phase-title">Support & Iteration</div>
+                                <div class="phase-desc">Evolve the software as the business evolves</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9 -->
+            <div class="slide" id="slide-9">
+                <div style="width: 100%; max-width: 1100px; position: relative;">
+                    <h2 class="slide-title" style="margin-bottom: 50px;">Engagement Models</h2>
+                    <div class="models-badge">Illustrative — scoped per client need</div>
+                    <div class="models-grid">
+                        <div class="model-card">
+                            <div class="model-icon">👥</div>
+                            <div class="model-title">Dedicated Squad</div>
+                            <div class="model-desc">Ongoing embedded team for continuous delivery needs and long-term partnership.</div>
+                        </div>
+                        <div class="model-card">
+                            <div class="model-icon">✓</div>
+                            <div class="model-title">Fixed-Scope Project</div>
+                            <div class="model-desc">Defined objectives, timeline, and deliverables for well-understood problems.</div>
+                        </div>
+                        <div class="model-card">
+                            <div class="model-icon">🤝</div>
+                            <div class="model-title">Embedded Co-Build</div>
+                            <div class="model-desc">Corvay engineers inside your team for knowledge transfer and capability building.</div>
+                        </div>
+                        <div class="model-card">
+                            <div class="model-icon">⟳</div>
+                            <div class="model-title">Managed Evolution</div>
+                            <div class="model-desc">Operate, maintain, and iterate on existing platforms for long-term product health.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10 -->
+            <div class="slide" id="slide-10">
+                <div style="width: 100%; max-width: 1100px;">
+                    <h2 class="slide-title" style="margin-bottom: 40px;">Why Corvay</h2>
+                    <div class="split-layout">
+                        <div class="split-panel muted feature-mill">
+                            <div class="split-title">Feature-Mill Vendors</div>
+                            <div class="icon-row">☑️ <span>Build exactly what's asked</span></div>
+                            <div class="icon-row">❓ <span>Rarely question the process</span></div>
+                            <div class="icon-row">💾 <span>Hand over code and move on</span></div>
+                        </div>
+                        <div class="split-panel bright">
+                            <div class="split-title">Corvay Approach</div>
+                            <div class="icon-row">💬 <span>Question the flow before writing code</span></div>
+                            <div class="icon-row">🗺️ <span>Map the real business operations</span></div>
+                            <div class="icon-row">⟳ <span>Engineer software that evolves with operations</span></div>
+                        </div>
+                    </div>
+                    <div class="differentiator-band">
+                        <div class="differentiator-claims">
+                            <div class="claim">
+                                <div class="claim-number">01</div>
+                                <div class="claim-title">Domain-First</div>
+                                <div class="claim-desc">Understand your business before designing solutions</div>
+                            </div>
+                            <div class="claim">
+                                <div class="claim-number">02</div>
+                                <div class="claim-title">Fit-Driven</div>
+                                <div class="claim-desc">Engineering that adapts to your operations</div>
+                            </div>
+                            <div class="claim">
+                                <div class="claim-number">03</div>
+                                <div class="claim-title">Partnership</div>
+                                <div class="claim-desc">Long-term operational evolution, not project handoff</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11 - Leadership -->
+            <div class="slide" id="slide-11">
+                <div style="width: 100%; max-width: 1200px;">
+                    <h2 class="slide-title" style="margin-bottom: 60px;">Our Leadership</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%;">
+                        <!-- CEO Card -->
+                        <div style="background: rgba(26, 58, 82, 0.6); border: 1px solid rgba(41, 182, 246, 0.2); border-radius: 8px; padding: 40px; text-align: center;">
+                            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--cyan), var(--royal-blue)); border-radius: 50%; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: white;">
+                                👔
+                            </div>
+                            <div style="font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 8px;">Adeyemi Tubosun</div>
+                            <div style="font-size: 14px; color: var(--cyan); font-weight: 600; margin-bottom: 25px;">CEO & Product Architect</div>
+
+                            <div style="text-align: left; margin-bottom: 25px;">
+                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Core Expertise</div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">AI/RAG Systems</span>
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Product Management</span>
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Cloud Architecture</span>
+                                </div>
+
+                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Experience</div>
+                                <div style="font-size: 13px; color: #B0BEC5; line-height: 1.6;">
+                                    <div style="margin-bottom: 8px;"><strong style="color: var(--white);">9+ years</strong> building enterprise software</div>
+                                    <div style="margin-bottom: 8px;">Led loan systems for <strong style="color: var(--white);">Fairmoney</strong></div>
+                                    <div style="margin-bottom: 8px;">Architected payment gateway <strong style="color: var(--white);">Hydrogen Pay</strong></div>
+                                    <div>Built 10+ operational reporting platforms</div>
+                                </div>
+
+                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 15px; margin-bottom: 10px;">Previous Roles</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">
+                                    <div>• Parallex Bank (Software Engineering Consultant)</div>
+                                    <div>• Fairmoney MFB (Software Engineer)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTO Card -->
+                        <div style="background: rgba(26, 58, 82, 0.6); border: 1px solid rgba(41, 182, 246, 0.2); border-radius: 8px; padding: 40px; text-align: center;">
+                            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--cyan), var(--royal-blue)); border-radius: 50%; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: white;">
+                                ⚙️
+                            </div>
+                            <div style="font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 8px;">Abdulhafiz Suleiman</div>
+                            <div style="font-size: 14px; color: var(--cyan); font-weight: 600; margin-bottom: 25px;">Chief Technology Officer</div>
+
+                            <div style="text-align: left; margin-bottom: 25px;">
+                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Technical Expertise</div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Go</span>
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">C#</span>
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Python</span>
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">AI/RAG</span>
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Microservices</span>
+                                    <span style="background: rgba(41, 182, 246, 0.2); color: var(--cyan); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;">Mono-repo</span>
+                                </div>
+
+                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Architecture Expertise</div>
+                                <div style="font-size: 13px; color: #B0BEC5; line-height: 1.6;">
+                                    <div style="margin-bottom: 8px;"><strong style="color: var(--white);">10+ years</strong> building enterprise systems</div>
+                                    <div style="margin-bottom: 8px;">Expert in <strong style="color: var(--white);">distributed systems</strong> design</div>
+                                    <div style="margin-bottom: 8px;">Deep expertise in <strong style="color: var(--white);">microservices</strong> and monolithic architectures</div>
+                                    <div>Specialized in <strong style="color: var(--white);">AI/RAG</strong> system implementation</div>
+                                </div>
+
+                                <div style="font-size: 12px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 15px; margin-bottom: 10px;">Focus Areas</div>
+                                <div style="font-size: 12px; color: #B0BEC5;">
+                                    <div>• Scalable backend architecture</div>
+                                    <div>• System reliability & observability</div>
+                                    <div>• Modern tech stack decisions</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 40px; padding: 25px; background: linear-gradient(90deg, rgba(2, 119, 189, 0.2), rgba(41, 182, 246, 0.2)); border-radius: 8px; text-align: center; border-left: 4px solid var(--cyan);">
+                        <div style="font-size: 14px; color: var(--white); font-weight: 600;">
+                            <strong>19+ combined years</strong> of enterprise software delivery experience across fintech, payment systems, AI, and operational platforms.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12 - Outcomes -->
+            <div class="slide" id="slide-12">
+                <div style="width: 100%; max-width: 1100px;">
+                    <h2 class="slide-title" style="margin-bottom: 40px;">What a Partnership Delivers</h2>
+                    <div class="outcomes-grid">
+                        <div class="outcome-block">
+                            <div class="outcome-number">01</div>
+                            <div class="outcome-content">
+                                <div class="outcome-icon">🧩</div>
+                                <div class="outcome-title">Software That Fits</div>
+                                <div class="outcome-desc">Applications shaped around how your teams actually work, removing the need for manual workarounds and spreadsheet gymnastics.</div>
+                            </div>
+                        </div>
+                        <div class="outcome-block">
+                            <div class="outcome-number">02</div>
+                            <div class="outcome-content">
+                                <div class="outcome-icon">🧠</div>
+                                <div class="outcome-title">Domain-Aware Engineering</div>
+                                <div class="outcome-desc">Engineers who understand your business model, not just your tech stack, so design decisions carry operational context and real-world impact.</div>
+                            </div>
+                        </div>
+                        <div class="outcome-block">
+                            <div class="outcome-number">03</div>
+                            <div class="outcome-content">
+                                <div class="outcome-icon">💡</div>
+                                <div class="outcome-title">Continuous Reflection</div>
+                                <div class="outcome-desc">The platform evolves as your bottlenecks do, with a roadmap tied to operational reality rather than a fixed feature list.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outcomes-closing">
+                        Partnership isn't a project. It's how your technology keeps pace with your business.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13 - Closing -->
+            <div class="slide" id="slide-13">
+                <div class="closing-content">
+                    <div class="closing-accent"></div>
+                    <h1 class="closing-headline">
+                        We don't just build software.<br><span class="highlight-cyan">We build technology around your business.</span>
+                    </h1>
+                    <div class="qa-prompt">Questions? Let's talk.</div>
+                    <div class="contact-info">
+                        <p><strong>Corvay Technologies</strong></p>
+                        <p>Ready to partner on your next software initiative</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <button class="nav-button" id="prev-btn" onclick="previousSlide()">
+                ‹ Previous
+            </button>
+            <div class="slide-progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="slide-counter">
+                <span id="current-slide">1</span> / <span id="total-slides">13</span>
+            </div>
+            <button class="nav-button" id="next-btn" onclick="nextSlide()">
+                Next ›
+            </button>
+        </div>
+    </div>
+
+    <div class="shortcuts-hint">← → or arrow keys to navigate</div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n >= totalSlides) {
+                currentSlide = totalSlides - 1;
+            } else if (n < 0) {
+                currentSlide = 0;
+            } else {
+                currentSlide = n;
+            }
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+
+            // Update counter
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+
+            // Update progress bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+
+            // Update button states
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
+
+            document.getElementById('total-slides').textContent = totalSlides;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
